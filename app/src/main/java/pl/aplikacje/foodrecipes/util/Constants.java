@@ -1,6 +1,6 @@
 package pl.aplikacje.foodrecipes.util;
 
-public class Consstants {
+public class Constants {
     public static final String BASE_URL = "https://wwwfood2for.com";
 
     //food2fork.com API
