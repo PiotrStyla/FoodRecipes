@@ -5,11 +5,13 @@ import android.arch.lifecycle.MutableLiveData;
 import java.util.List;
 
 import pl.aplikacje.foodrecipes.models.Recipe;
+import pl.aplikacje.foodrecipes.requests.RecipeApiClient;
 
 public class RecipeRepository {
 
     private static RecipeRepository instance;
-    private MutableLiveData<List<Recipe>> mRecipes;
+    private static RecipeApiClient mRecipeApiClient;
+
 
     public static RecipeRepository getInstance() {
 
@@ -21,10 +23,10 @@ public class RecipeRepository {
 
 
     private RecipeRepository(){
-        mRecipes = new MutableLiveData<>();
+        mRecipeApiClient = RecipeApiClient.getInstance();
     }
 
-    public MutableLiveData<List<Recipe>> getmRecipes(){
-        return mRecipes;
+    public MutableLiveData<List<Recipe>> getRecipes(){
+        return mRecipeApiClient.getRecipes();
     }
 }
