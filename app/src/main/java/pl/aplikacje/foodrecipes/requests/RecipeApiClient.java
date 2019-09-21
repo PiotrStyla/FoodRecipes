@@ -47,7 +47,7 @@ public class RecipeApiClient {
         return mRecipes;
     }
 
-    public void serchRecipesApi(String querry,int pageNumber) {
+    public void searchRecipesApi(String querry,int pageNumber) {
 
         if (mRetriveRecipesRunable != null){
             mRetriveRecipesRunable = null;
@@ -72,7 +72,7 @@ public class RecipeApiClient {
         private int pageNumber;
         boolean cancelRequest;
 
-        public RetriveRecipesRunable(String querry, int pageNumber) {
+        private RetriveRecipesRunable(String querry, int pageNumber) {
             this.querry = querry;
             this.pageNumber = pageNumber;
             cancelRequest = false;
@@ -83,7 +83,7 @@ public class RecipeApiClient {
 
             try {
                 Response response = getRecipes(querry, pageNumber).execute();
-                if (cancelRequest == true) {
+                if (cancelRequest) {
                     return;
                 }
 

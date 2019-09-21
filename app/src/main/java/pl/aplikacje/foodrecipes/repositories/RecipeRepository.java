@@ -29,4 +29,11 @@ public class RecipeRepository {
     public MutableLiveData<List<Recipe>> getRecipes(){
         return mRecipeApiClient.getRecipes();
     }
+    public void searchRecipesApi(String querry, int pageNumber){
+        if (pageNumber == 0){
+            pageNumber = 1;
+        }
+        mRecipeApiClient.searchRecipesApi(querry,pageNumber);
+
+    }
 }
