@@ -22,7 +22,7 @@
                 android:scaleType="centerCrop"
                 android:id="@+id/recipe_image"
                 android:src="@drawable/ic_launcher_background"
-                android:contentDescription="@string/app_name"/>
+                android:contentDescription="@string/image_of_the_recipe_item"/>
 
 
             <LinearLayout
