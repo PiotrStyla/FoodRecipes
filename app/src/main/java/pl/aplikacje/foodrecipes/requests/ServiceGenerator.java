@@ -14,7 +14,7 @@ public class ServiceGenerator {
 
     private static RecipeApi recipeApi = retrofit.create(RecipeApi.class);
 
-    public static RecipeApi getRecipeApi (){
+    public static RecipeApi getRecipeApi() {
         return recipeApi;
     }
 

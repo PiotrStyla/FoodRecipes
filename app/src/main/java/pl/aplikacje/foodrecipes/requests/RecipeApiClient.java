@@ -47,9 +47,9 @@ public class RecipeApiClient {
         return mRecipes;
     }
 
-    public void searchRecipesApi(String querry,int pageNumber) {
+    public void searchRecipesApi(String querry, int pageNumber) {
 
-        if (mRetriveRecipesRunable != null){
+        if (mRetriveRecipesRunable != null) {
             mRetriveRecipesRunable = null;
         }
         mRetriveRecipesRunable = new RetriveRecipesRunable(querry, pageNumber);
@@ -96,9 +96,7 @@ public class RecipeApiClient {
                         currentRecipies.addAll(list);
                         mRecipes.postValue(currentRecipies);
                     }
-                }
-
-                else{
+                } else {
                     String error = response.errorBody().string();
                     Log.e(TAG, "run: " + error);
                     mRecipes.postValue(null);

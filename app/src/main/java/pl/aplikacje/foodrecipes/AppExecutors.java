@@ -1,14 +1,14 @@
 package pl.aplikacje.foodrecipes;
 
-        import java.util.concurrent.Executors;
-        import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class AppExecutors<SheduledExecutorService> {
 
     private static AppExecutors instance;
 
-    public static AppExecutors getInstance(){
-        if(instance == null){
+    public static AppExecutors getInstance() {
+        if (instance == null) {
             instance = new AppExecutors();
         }
         return instance;
@@ -16,7 +16,7 @@ public class AppExecutors<SheduledExecutorService> {
 
     private final ScheduledExecutorService mNetworkIO = Executors.newScheduledThreadPool(3);
 
-    public ScheduledExecutorService networkIO(){
+    public ScheduledExecutorService networkIO() {
 
         return mNetworkIO;
     }

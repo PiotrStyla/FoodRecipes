@@ -10,7 +10,8 @@ public class RecipeReponse {
     @SerializedName("recipe")
     @Expose
     private Recipe recipe;
-    public Recipe getRecipe(){
+
+    public Recipe getRecipe() {
         return recipe;
     }
 

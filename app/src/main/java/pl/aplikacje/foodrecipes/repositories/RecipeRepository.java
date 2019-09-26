@@ -22,18 +22,19 @@ public class RecipeRepository {
     }
 
 
-    private RecipeRepository(){
+    private RecipeRepository() {
         mRecipeApiClient = RecipeApiClient.getInstance();
     }
 
-    public MutableLiveData<List<Recipe>> getRecipes(){
+    public MutableLiveData<List<Recipe>> getRecipes() {
         return mRecipeApiClient.getRecipes();
     }
-    public void searchRecipesApi(String querry, int pageNumber){
-        if (pageNumber == 0){
+
+    public void searchRecipesApi(String querry, int pageNumber) {
+        if (pageNumber == 0) {
             pageNumber = 1;
         }
-        mRecipeApiClient.searchRecipesApi(querry,pageNumber);
+        mRecipeApiClient.searchRecipesApi(querry, pageNumber);
 
     }
 }

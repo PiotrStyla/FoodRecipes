@@ -10,8 +10,6 @@ import pl.aplikacje.foodrecipes.models.Recipe;
 public class RecipeSearchResponse {
 
 
-
-
     @SerializedName("count")
     @Expose
     private int count;
