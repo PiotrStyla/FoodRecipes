@@ -21,6 +21,7 @@ import pl.aplikacje.foodrecipes.requests.RecipeApi;
 import pl.aplikacje.foodrecipes.requests.ServiceGenerator;
 import pl.aplikacje.foodrecipes.requests.responses.RecipeSearchResponse;
 import pl.aplikacje.foodrecipes.util.Constants;
+import pl.aplikacje.foodrecipes.util.VerticalSpcingItemDecorator;
 import pl.aplikacje.foodrecipes.viewModels.RecipeListViewModel;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -75,8 +76,11 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
     private void initRecyclerView(){
 
         mAdapter = new RecipeRecyclerAdapter(this);
+        VerticalSpcingItemDecorator itemDecorator = new VerticalSpcingItemDecorator(30);
+        mRecyclerView.addItemDecoration(itemDecorator);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
 
