@@ -81,6 +81,7 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
     }
 
 
