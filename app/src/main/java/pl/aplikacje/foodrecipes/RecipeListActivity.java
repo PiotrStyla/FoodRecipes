@@ -7,25 +7,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
-import android.view.View;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import pl.aplikacje.foodrecipes.adapters.OnRecipeListener;
 import pl.aplikacje.foodrecipes.adapters.RecipeRecyclerAdapter;
 import pl.aplikacje.foodrecipes.models.Recipe;
-import pl.aplikacje.foodrecipes.requests.RecipeApi;
-import pl.aplikacje.foodrecipes.requests.ServiceGenerator;
-import pl.aplikacje.foodrecipes.requests.responses.RecipeSearchResponse;
-import pl.aplikacje.foodrecipes.util.Constants;
-import pl.aplikacje.foodrecipes.util.VerticalSpcingItemDecorator;
+import pl.aplikacje.foodrecipes.util.VerticalSpacingItemDecorator;
 import pl.aplikacje.foodrecipes.viewModels.RecipeListViewModel;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class RecipeListActivity extends BaseActivity implements OnRecipeListener {
 
@@ -76,7 +65,7 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
     private void initRecyclerView(){
 
         mAdapter = new RecipeRecyclerAdapter(this);
-        VerticalSpcingItemDecorator itemDecorator = new VerticalSpcingItemDecorator(30);
+        VerticalSpacingItemDecorator itemDecorator = new VerticalSpacingItemDecorator(30);
         mRecyclerView.addItemDecoration(itemDecorator);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
