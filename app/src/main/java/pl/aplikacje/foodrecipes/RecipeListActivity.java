@@ -51,7 +51,9 @@ public class RecipeListActivity extends BaseActivity implements OnRecipeListener
             public void onChanged(@Nullable List<Recipe> recipes) {
                 if (recipes != null) {
 
-                    mAdapter.setmRecipes(recipes);
+                    if(mRecipeListViewModel.ismIsViewingRecipes()){
+                        mAdapter.setmRecipes(recipes);
+                    }
 
                 }
 

@@ -14,7 +14,6 @@ public class RecipeListViewModel extends ViewModel {
     private boolean mIsViewingRecipes;
 
     public RecipeListViewModel() {
-        mIsViewingRecipes = false;
         mRecipeRepository = RecipeRepository.getInstance();
 
     }
