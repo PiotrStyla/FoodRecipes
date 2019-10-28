@@ -2,6 +2,7 @@ package pl.aplikacje.foodrecipes.viewModels;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
+import android.util.Log;
 
 import java.util.List;
 
@@ -29,6 +30,9 @@ public class RecipeListViewModel extends ViewModel {
         mIsPerformingQuerry = true;
         mRecipeRepository.searchRecipesApi(querry, pageNumber);
     }
+
+
+
 
     public boolean ismIsViewingRecipes(){
         return  mIsViewingRecipes;
@@ -61,5 +65,12 @@ public class RecipeListViewModel extends ViewModel {
             return false;
         }
         return true;
+    }
+    public void searchNextPage(){
+
+        if(!mIsPerformingQuerry
+                && mIsViewingRecipes){
+            mRecipeRepository.searchNextPage();
+        }
     }
 }

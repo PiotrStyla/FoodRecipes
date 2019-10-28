@@ -11,6 +11,8 @@ public class RecipeRepository {
 
     private static RecipeRepository instance;
     private static RecipeApiClient mRecipeApiClient;
+    private String mQuerry;
+    private int mPageNumber;
 
 
     public static RecipeRepository getInstance() {
@@ -34,8 +36,14 @@ public class RecipeRepository {
         if (pageNumber == 0) {
             pageNumber = 1;
         }
+        mQuerry = querry;
+        mPageNumber = pageNumber;
         mRecipeApiClient.searchRecipesApi(querry, pageNumber);
 
+    }
+
+    public void searchNextPage(){
+        searchRecipesApi(mQuerry, mPageNumber+1);
     }
 
     public void  cancelRequest(){
