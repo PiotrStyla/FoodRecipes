@@ -2,7 +2,9 @@ package pl.aplikacje.foodrecipes;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v7.widget.AppCompatImageView;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import pl.aplikacje.foodrecipes.models.Recipe;
 
 public class RecipeActivity extends BaseActivity {
+    private static final String TAG = "RecipeActivity";
 
     //UI Components
     private AppCompatImageView mRecipeImage;
@@ -36,6 +39,7 @@ public class RecipeActivity extends BaseActivity {
 
         if(getIntent().hasExtra("recipe")){
             Recipe recipe = getIntent().getParcelableExtra("recipe");
+            Log.d(TAG, "getIncomingIntent:" + recipe.getTitle());
         }
     }
 }
