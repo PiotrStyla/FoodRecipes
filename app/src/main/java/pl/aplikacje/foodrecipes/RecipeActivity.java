@@ -1,5 +1,7 @@
 package pl.aplikacje.foodrecipes;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -10,6 +12,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import pl.aplikacje.foodrecipes.models.Recipe;
+import pl.aplikacje.foodrecipes.viewModels.RecipeViewModel;
 
 public class RecipeActivity extends BaseActivity {
     private static final String TAG = "RecipeActivity";
@@ -19,6 +22,8 @@ public class RecipeActivity extends BaseActivity {
     private TextView mRecipeTitle, mRecipeRank;
     private LinearLayout mRecipeIngredientsContainer;
     private ScrollView mScrollView;
+
+    private RecipeViewModel mRecipeViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,6 +36,10 @@ public class RecipeActivity extends BaseActivity {
         mRecipeIngredientsContainer = findViewById(R.id.ingredients_container);
         mScrollView = findViewById(R.id.parent);
 
+        mRecipeViewModel = ViewModelProviders.of(this).get(RecipeViewModel.class);
+
+
+
 
         getIncomingIntent();
     }
@@ -40,6 +49,23 @@ public class RecipeActivity extends BaseActivity {
         if(getIntent().hasExtra("recipe")){
             Recipe recipe = getIntent().getParcelableExtra("recipe");
             Log.d(TAG, "getIncomingIntent:" + recipe.getTitle());
+            mRecipeViewModel.searchRecipeById(recipe.getRecipe_id());
         }
+    }
+
+    private void subscribeObservers(){
+        mRecipeViewModel.getRecipe().observe(this, new Observer<Recipe>() {
+            @Override
+            public void onChanged(@Nullable Recipe recipe) {
+                if(recipe != null){
+                    Log.d(TAG,"----------@@@@@@@@@@@@@@@@@@@@__________");
+                    Log.d(TAG,"ZMIENIONE " + recipe.getTitle());
+                    for(String ingredient: recipe.getIngredients()){
+                        Log.d(TAG, "Zmienione " + ingredient);
+                    }
+                }
+
+            }
+        });
     }
 }

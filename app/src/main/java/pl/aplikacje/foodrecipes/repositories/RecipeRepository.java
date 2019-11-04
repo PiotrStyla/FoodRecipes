@@ -1,5 +1,6 @@
 package pl.aplikacje.foodrecipes.repositories;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
 import java.util.List;
@@ -28,9 +29,15 @@ public class RecipeRepository {
         mRecipeApiClient = RecipeApiClient.getInstance();
     }
 
-    public MutableLiveData<List<Recipe>> getRecipes() {
-        return mRecipeApiClient.getRecipes();
+    public LiveData<List<Recipe>> getRecipes() { return mRecipeApiClient.getRecipes(); }
+
+    public LiveData<Recipe> getRecipe() { return mRecipeApiClient.getRecipe(); }
+
+    public void searchRecipeById(String recipeId){
+        mRecipeApiClient.searchRecipeById(recipeId);
     }
+
+
 
     public void searchRecipesApi(String querry, int pageNumber) {
         if (pageNumber == 0) {
