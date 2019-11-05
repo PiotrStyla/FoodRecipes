@@ -9,6 +9,7 @@ import pl.aplikacje.foodrecipes.repositories.RecipeRepository;
 public class RecipeViewModel extends ViewModel {
 
     private RecipeRepository mRecipeRepository;
+    private String mRecipeId;
 
 
     public RecipeViewModel() {
@@ -20,6 +21,11 @@ public class RecipeViewModel extends ViewModel {
     }
 
     public void searchRecipeById(String recipeId){
+        mRecipeId = recipeId;
         mRecipeRepository.searchRecipeById(recipeId);
+    }
+
+    public String getmRecipeId() {
+        return mRecipeId;
     }
 }
