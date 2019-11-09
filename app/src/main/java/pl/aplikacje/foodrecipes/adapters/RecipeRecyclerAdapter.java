@@ -38,13 +38,9 @@ public class RecipeRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
         View view = null;
         switch (i) {
-            case RECIPE_TYPE: {
-                view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_recipe_list_item, viewGroup, false);
-                return new RecipeViewHolder(view, mOnRecipeListener);
-            }
 
             case LOADING_TYPE: {
-                view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_recipe_list_item, viewGroup, false);
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_loading_list_item, viewGroup, false);
                 return new LoadingViewHolder(view);
             }
             case CATEGORY_TYPE: {

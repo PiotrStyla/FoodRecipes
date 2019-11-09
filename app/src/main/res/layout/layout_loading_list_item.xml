@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/recycler_loading_view_height">
@@ -11,4 +11,4 @@
 
     </pl.aplikacje.foodrecipes.util.HorisontalDotedProgress>
 
-</android.widget.RelativeLayout>
+</RelativeLayout>
