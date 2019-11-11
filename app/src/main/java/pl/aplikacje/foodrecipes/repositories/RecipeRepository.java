@@ -54,7 +54,7 @@ public class RecipeRepository {
 
     public void doneQuerry(List<Recipe> list){
         if(list !=null){
-            if(list.size()<30){
+            if(list.size() %30 !=0){
                 mIsQuerryExhausted.setValue(true);
             }
         }
